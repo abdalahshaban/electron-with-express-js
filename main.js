@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
 var path = require("path");
+var screenshot = require('screenshot-desktop');
 var server = require('./app.js');
 var tray = null;
 var mainWindow = null;
@@ -34,6 +35,7 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:3000');
     mainWindow.hide();
     initTray();
+    screenshot({ format: 'png', filename: 'test.png' });
 }
 function initTray() {
     tray = new electron_1.Tray(path.join(__dirname, './assets/img/icon.jpg'));
@@ -41,11 +43,14 @@ function initTray() {
         {
             label: 'App Name',
             click: function () {
+                console.log(mainWindow.title);
             }
         },
         {
             label: 'Quit',
             type: 'normal',
+            role: 'quit',
+            toolTip: "will exit from app",
             click: function () {
                 electron_1.app.quit();
             }

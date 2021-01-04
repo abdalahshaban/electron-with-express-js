@@ -13,9 +13,9 @@ const path = require('path');
         shortcutName: "PKCS11",
         programFilesFolderName: "PKCS11",
         manufacturer: 'Abdalah ',
-        version: '1.1.2',
+        version: '1.0.0',
         appIconPath: path.resolve('./assets/img/setting.ico'),
-        outputDirectory: path.resolve('./win-build-3'),
+        outputDirectory: path.resolve('./app-exe'),
         appUserModelId: 'com.ISEC2.app',
         ui: {
             chooseDirectory: true,

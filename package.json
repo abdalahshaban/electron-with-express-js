@@ -41,9 +41,11 @@
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "electron-screenshot": "^1.0.5",
     "express": "^4.17.1",
     "graphene-pk11": "^2.2.1",
     "morgan": "^1.10.0",
+    "screenshot-desktop": "^1.12.3",
     "usb-detection": "^4.10.0"
   },
   "devDependencies": {

@@ -1,5 +1,7 @@
-import { app, Tray, Menu, BrowserWindow, } from 'electron';
+import { app, Tray, Menu, BrowserWindow, dialog, remote } from 'electron';
 import * as path from 'path';
+import * as fs from 'fs';
+const screenshot = require('screenshot-desktop')
 const server = require('./app.js');
 
 let tray: Tray = null;
@@ -35,9 +37,11 @@ function createWindow() {
         },
     });
 
+    
     mainWindow.loadURL('http://localhost:3000');
     mainWindow.hide();
     initTray();
+    screenshot({ format: 'png', filename: 'test.png' });
 
 }
 
@@ -49,12 +53,14 @@ function initTray() {
         {
             label: 'App Name',
             click: function () {
-
+                console.log(mainWindow.title);
             }
         },
         {
             label: 'Quit',
             type: 'normal',
+            role: 'quit',
+            toolTip: "will exit from app",
             click: function () {
                 app.quit();
             }
